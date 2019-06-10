@@ -10,6 +10,7 @@ Created:	04/06/2019
 '''
 
 import arcade
+import random
 
 
 WIDTH = 700
@@ -19,24 +20,31 @@ HEIGHT = 580
 player_x = WIDTH/2
 player_y = HEIGHT - (HEIGHT - 100)
 
+ball_x = random.randrange(10, WIDTH - 10)
+ball_y = random.randrange(player_y, HEIGHT - 10)
+
 # Variables to record if certain keys are being pressed.
 left_pressed = False
 right_pressed = False
 
 
 def on_update(delta_time):
-    global right_pressed, left_pressed, player_x
+    global right_pressed, left_pressed, player_x, player_y
     if right_pressed:
         player_x += 3
     if left_pressed:
         player_x -= 3
 
+    if player_x > WIDTH:
+        player_x += -1
+
 
 def on_draw():
-    global player_x, player_y
+    global player_x, player_y, ball_x, ball_y
     arcade.start_render()
     # Draw in here...
     arcade.draw_rectangle_filled(player_x, player_y, 150, 20, arcade.color.WHITE)
+    arcade.draw_circle_filled(ball_x, ball_y, 12, arcade.color.WHITE)
 
 
 def on_key_press(key, modifiers):
