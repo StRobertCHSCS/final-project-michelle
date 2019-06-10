@@ -17,3 +17,13 @@ will increase, making it harder and harder for the player.
 
 ### Scoring
 Every time the player successfully bounces the ball off the platform, they will be awarded one point. 
+
+### To-do List
+* Build the platform/bar and the ball
+* Program their respective movements
+* Program the countdown timer
+* Program the speed increases
+* Program the points counter
+* Program the second ball
+* Add sound
+* Add a background (optional)
